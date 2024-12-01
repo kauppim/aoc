@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.002.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdventOfCsharp", "AdventOfCsharp\AdventOfCsharp.csproj", "{AE9B358E-D175-4DA8-9650-9D1BCC425639}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HistorianHysteria", "HistorianHysteria\HistorianHysteria.csproj", "{66483C51-2B19-4AE5-B5AC-8AB66F658B21}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AE9B358E-D175-4DA8-9650-9D1BCC425639}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE9B358E-D175-4DA8-9650-9D1BCC425639}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE9B358E-D175-4DA8-9650-9D1BCC425639}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE9B358E-D175-4DA8-9650-9D1BCC425639}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66483C51-2B19-4AE5-B5AC-8AB66F658B21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66483C51-2B19-4AE5-B5AC-8AB66F658B21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66483C51-2B19-4AE5-B5AC-8AB66F658B21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66483C51-2B19-4AE5-B5AC-8AB66F658B21}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DE9EED68-D737-4C0D-806B-65876EB7FC7D}
+	EndGlobalSection
+EndGlobal
