@@ -1,5 +1,6 @@
 ﻿using HistorianHysteria;
 using RedNosedReports;
+using MullItOver;
 
 internal class Program
 {
@@ -10,6 +11,8 @@ internal class Program
         Console.WriteLine(" 1 - Historian Hysteria");
         Console.WriteLine(" 2a - Red Nosed Reports");
         Console.WriteLine(" 2b - Red Nosed Reports: Problem dampener");
+        Console.WriteLine(" 3a - Mull It Over");
+        Console.WriteLine(" 3b - Mull It Over: Do or Don't");
         Console.WriteLine("======================================");
         Console.WriteLine("Please select a subroutine:");
 
@@ -25,6 +28,12 @@ internal class Program
             break;
             case "2b":
                 Console.WriteLine(Reports.CalculateSafeReportsDampener());
+            break;
+            case "3a":
+                Console.WriteLine(ParseMemory.Parse());
+            break;
+            case "3b":
+                Console.WriteLine(ParseMemory.ParseV2());
             break;
             default:
                 Console.WriteLine("Good bye!");
