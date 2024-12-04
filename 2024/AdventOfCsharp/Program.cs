@@ -1,6 +1,7 @@
 ﻿using HistorianHysteria;
 using RedNosedReports;
 using MullItOver;
+using WordSearch;
 
 internal class Program
 {
@@ -13,6 +14,8 @@ internal class Program
         Console.WriteLine(" 2b - Red Nosed Reports: Problem dampener");
         Console.WriteLine(" 3a - Mull It Over");
         Console.WriteLine(" 3b - Mull It Over: Do or Don't");
+        Console.WriteLine(" 4a - Ceres Search");
+        Console.WriteLine(" 4b - Ceres X-MAS Search");
         Console.WriteLine("======================================");
         Console.WriteLine("Please select a subroutine:");
 
@@ -34,6 +37,14 @@ internal class Program
             break;
             case "3b":
                 Console.WriteLine(ParseMemory.ParseV2());
+            break;
+            case "4a":
+                var searcher = new WordSearcher(new List<string> {"XMAS"}, "/Users/mikael/dev/repos/aoc/2024/WordSearch/input");
+                searcher.PerformSearch();
+            break;
+            case "4b":
+                var searcher1 = new CrossSearcher(new List<string> {"MAS"}, "/Users/mikael/dev/repos/aoc/2024/WordSearch/input");
+                searcher1.PerformSearch();
             break;
             default:
                 Console.WriteLine("Good bye!");
