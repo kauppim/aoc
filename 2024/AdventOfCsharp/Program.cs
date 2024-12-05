@@ -2,6 +2,7 @@
 using RedNosedReports;
 using MullItOver;
 using WordSearch;
+using PrintQueue;
 
 internal class Program
 {
@@ -16,6 +17,7 @@ internal class Program
         Console.WriteLine(" 3b - Mull It Over: Do or Don't");
         Console.WriteLine(" 4a - Ceres Search");
         Console.WriteLine(" 4b - Ceres X-MAS Search");
+        Console.WriteLine(" 5 - Print Queue");
         Console.WriteLine("======================================");
         Console.WriteLine("Please select a subroutine:");
 
@@ -45,6 +47,9 @@ internal class Program
             case "4b":
                 var searcher1 = new CrossSearcher(new List<string> {"MAS"}, "/Users/mikael/dev/repos/aoc/2024/WordSearch/input");
                 searcher1.PerformSearch();
+            break;
+            case "5":
+                Console.WriteLine(QueueHandler.Validate());
             break;
             default:
                 Console.WriteLine("Good bye!");

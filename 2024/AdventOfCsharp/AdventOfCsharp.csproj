@@ -10,6 +10,7 @@
   <ItemGroup>
     <ProjectReference Include="../HistorianHysteria/HistorianHysteria.csproj" />
     <ProjectReference Include="../MullItOver/MullItOver.csproj" />
+    <ProjectReference Include="../PrintQueue/PrintQueue.csproj" />
     <ProjectReference Include="../RedNosedReports/RedNosedReports.csproj" />
     <ProjectReference Include="../WordSearch/WordSearch.csproj" />
   </ItemGroup>

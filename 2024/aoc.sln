@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MullItOver", "MullItOver\Mu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordSearch", "WordSearch\WordSearch.csproj", "{FDFC0088-8793-40FE-90D6-1BD3705F824B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrintQueue", "PrintQueue\PrintQueue.csproj", "{1F3AB320-A6A8-402E-9DC8-C5C3A96A9475}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{FDFC0088-8793-40FE-90D6-1BD3705F824B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FDFC0088-8793-40FE-90D6-1BD3705F824B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FDFC0088-8793-40FE-90D6-1BD3705F824B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F3AB320-A6A8-402E-9DC8-C5C3A96A9475}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F3AB320-A6A8-402E-9DC8-C5C3A96A9475}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F3AB320-A6A8-402E-9DC8-C5C3A96A9475}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F3AB320-A6A8-402E-9DC8-C5C3A96A9475}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

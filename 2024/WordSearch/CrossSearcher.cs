@@ -18,7 +18,8 @@ public class CrossSearcher
         {
             Console.WriteLine($"Search for: {item}");
             var result = Search(item);
-            Console.WriteLine($"Found {result.Count} appearances of search item.");
+            var count = result.Count / 2;
+            Console.WriteLine($"Found {count} appearances of X-MAS.");
         }
         Console.WriteLine("Search Finished!");
     }
