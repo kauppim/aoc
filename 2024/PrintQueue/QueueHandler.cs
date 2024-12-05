@@ -65,9 +65,19 @@ public class QueueHandler
         // PrintRules(backwardRules);
 
         // Remember to collect the middle page numbers of approved print instructions.
+        var middlePages = new List<int>();
         // Validate instructions.
-        var middlePages = Validate(true);
-
+        foreach (var instructionSet in instructions)
+        {
+            var temp = Validate(instructionSet);
+            if (temp.Item2 == instructionSet.Count) {
+                middlePages.Add(temp.Item3);
+            }
+            else
+            {
+                invalidInstructions.Add(instructionSet);
+            }
+        }
         // End.
         var total = middlePages.Sum();
         Console.WriteLine("Invalid instruction sets:");
@@ -75,58 +85,88 @@ public class QueueHandler
         return $"Total value of middle page numbers is {total}.";
     }
 
-    public string Reorder() {
-        return "";
-    }
-
-    private List<int> Validate(bool findInvalidInstructions)
-    {
+    public string ExecuteReorder() {
         var middlePages = new List<int>();
-        foreach (var instructionSet in instructions)
+        Console.WriteLine("Attempting to reorder invalid instruction sets...");
+        foreach (var instructionSet in invalidInstructions)
         {
-            var count = instructionSet.Count;
-            var isValid = true;
-            for (int i = 0; i < count; i++)
+            var isValid = false;
+            do
             {
-                // Check forward
-                if (forwardRules.TryGetValue(instructionSet[i], out var forwardRule))
-                {
-                    for (int j = i + 1; j < count; j++)
+                var result = Validate(instructionSet);
+                if (result.Item2 != instructionSet.Count) {
+                    if (result.Item1 == true)
                     {
-                        if (!forwardRule.Contains(instructionSet[j]))
-                        {
-                            isValid = false;
-                            break;
-                        }
+                        var left = result.Item2 - 1;
+                        var right = result.Item2;
+                        (instructionSet[right], instructionSet[left]) = (instructionSet[left], instructionSet[right]);
                     }
-                }
-                // Check backward
-                if (backwardRules.TryGetValue(instructionSet[i], out var backwardRule))
-                {
-                    for (int k = i - 1; k >= 0; k--)
+                    else
                     {
-                        if (!backwardRule.Contains(instructionSet[k]))
-                        {
-                            isValid = false;
-                            break;
-                        }
+                        var left = result.Item2;
+                        var right = result.Item2 + 1;
+                        (instructionSet[right], instructionSet[left]) = (instructionSet[left], instructionSet[right]);
+                    }
+                    
+                    Console.Write("Trying new instruction set: ");
+                    Console.WriteLine(InstructionSetToString(instructionSet));
+                }
+                else
+                {
+                    isValid = true;
+                    middlePages.Add(result.Item3);
+                }
+            } while (isValid == false);
+        }
+        var total = middlePages.Sum();
+        return $"Total value of reordered middle page numbers is {total}.";
+    }
+    private (bool, int, int) Validate(List<int> instructionSet)
+    {
+        var count = instructionSet.Count;
+        var middle = instructionSet[count / 2];
+        var isValid = true;
+        var breakIndex = count;
+        var breakDirForward = true;
+        for (int i = 0; isValid == true && i < count; i++)
+        {
+            // Check forward
+            if (isValid == true && forwardRules.TryGetValue(instructionSet[i], out var forwardRule))
+            {
+                for (int j = i + 1; j < count; j++)
+                {
+                    if (!forwardRule.Contains(instructionSet[j]))
+                    {
+                        isValid = false;
+                        breakIndex = j;
+                        break;
                     }
                 }
             }
-
-            if (isValid)
+            // Check backward
+            if (isValid == true && backwardRules.TryGetValue(instructionSet[i], out var backwardRule))
             {
-                Console.Write("Instruction set: ");
-                Console.Write(InstructionSetToString(instructionSet));
-                Console.WriteLine(" is valid!");
-                middlePages.Add(instructionSet[count / 2]);
-            }
-            else if (findInvalidInstructions)
-            {
-                invalidInstructions.Add(instructionSet);
+                for (int k = i - 1; k >= 0; k--)
+                {
+                    if (!backwardRule.Contains(instructionSet[k]))
+                    {
+                        isValid = false;
+                        breakIndex = k;
+                        breakDirForward = false;
+                        break;
+                    }
+                }
             }
         }
-        return middlePages;
+
+        if (isValid)
+        {
+            Console.Write("Instruction set: ");
+            Console.Write(InstructionSetToString(instructionSet));
+            Console.WriteLine(" is valid!");
+        }
+        
+        return (breakDirForward, breakIndex, middle);
     }
 
     private static void PrintInstructions(List<List<int>> instructions) {
