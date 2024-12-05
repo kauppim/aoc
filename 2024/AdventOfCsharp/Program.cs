@@ -49,7 +49,9 @@ internal class Program
                 searcher1.PerformSearch();
             break;
             case "5":
-                Console.WriteLine(QueueHandler.Validate());
+                var handler = new QueueHandler("/Users/mikael/dev/repos/aoc/2024/PrintQueue/test1");
+                Console.WriteLine(handler.Execute());
+                Console.WriteLine(handler.Reorder());
             break;
             default:
                 Console.WriteLine("Good bye!");
