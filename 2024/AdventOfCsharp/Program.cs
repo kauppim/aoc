@@ -3,6 +3,7 @@ using RedNosedReports;
 using MullItOver;
 using WordSearch;
 using PrintQueue;
+using GuardGallivant;
 
 internal class Program
 {
@@ -18,6 +19,7 @@ internal class Program
         Console.WriteLine(" 4a - Ceres Search");
         Console.WriteLine(" 4b - Ceres X-MAS Search");
         Console.WriteLine(" 5 - Print Queue");
+        Console.WriteLine(" 6 - Guard Gallivant");
         Console.WriteLine("======================================");
         Console.WriteLine("Please select a subroutine:");
 
@@ -53,6 +55,9 @@ internal class Program
                 Console.WriteLine(handler.Execute());
                 Console.WriteLine("=================");
                 Console.WriteLine(handler.ExecuteReorder());
+            break;
+            case "6":
+                Console.WriteLine(MapSearcher.TraverseMap("/Users/mikael/dev/repos/aoc/2024/GuardGallivant/input"));
             break;
             default:
                 Console.WriteLine("Good bye!");
